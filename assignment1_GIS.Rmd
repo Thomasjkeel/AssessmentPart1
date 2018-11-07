@@ -81,7 +81,7 @@ map
 ```
 
 As shown in Figure 1 below, 
-![Figure1]
+![Figure1](qgis_map_final.png)
 
 
 BLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAH
