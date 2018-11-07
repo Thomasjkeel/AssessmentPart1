@@ -1,6 +1,6 @@
 ---
 title: "assignment1_GIS"
-author: "18110348"
+author: "student number: 18110348"
 date: "07/11/2018"
 output:
   html_document: default
@@ -11,13 +11,27 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### GIS Assignment 1
+# GIS Assignment 1
+
+###Contents:
+##### 1. Introduction 
+##### 2. Data and Methodology
+##### 3. Results
+##### 4. Discussion
+##### 5. Conclusion
+##### References
+##### Appendix A
+##### Appendix B
 
 ## 1. Introduction:
 As shown in Figure 1 below, 
 ![Figure1](qgis_map_final.png)
+**Figure 1** GUI example map produced in QGIS. Map is given in British National Grid Projection and uses data from ONS (2018).
 
-## Load required Libraries
+
+## 2. Data and Methodology:
+
+## 3. Results:
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 library(tidyverse)
 library(maptools)
@@ -81,7 +95,10 @@ map <- tm_shape(SEmap) +
   tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
 map
 ```
-   
+**Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2018).
+
+## 4. Discussion:
+## 5. Conclusion:
 
 ## References:
 Census (UK Data Service) (2018) English Middle Layer Super Output Areas, 2011.[Data]. Available at: https://borders.ukdataservice.ac.uk//easy_download_data.html?data=England_msoa_2011 [Accessed 5th November 2018].
@@ -156,8 +173,6 @@ map <- tm_shape(SEmap) +
 ```
 
 ## Appendix B: Code used to merge shapefile together based on Middle Super Output Areas (MSOA)
-
-
 ```{Python}
 import geopandas as gpd
 import pandas as pd
