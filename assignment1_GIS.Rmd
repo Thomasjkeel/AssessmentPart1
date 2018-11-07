@@ -1,6 +1,6 @@
 ---
 title: "assignment1_GIS"
-author: "Thomas Keel"
+author: "18110348"
 date: "07/11/2018"
 output:
   html_document: default
@@ -14,7 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ### GIS Assignment 1
 
 ## 1. Introduction:
-
+As shown in Figure 1 below, 
+![Figure1](qgis_map_final.png)
 
 ## Load required Libraries
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
@@ -73,18 +74,41 @@ map <- tm_shape(SEmap) +
               palette="Blues",
               midpoint=NA,
               title="Population (%)",
-              legend.is.portrait = TRUE) +
+              legend.is.portrait = TRUE,
+              popup.vars=c("msoa11nm","perc_no_qual")) +
   tm_scale_bar() + 
-  tm_facets(by = "CTY17NM", nrow = 4, ncol = 2) +
-  tm_view(set.view = 7, basemaps = c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
+  tm_facets(by = "CTY17NM", nrow = 3, scale.factor=1) +
+  tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
 map
 ```
-
-As shown in Figure 1 below, 
-![Figure1](qgis_map_final.png)
+   
 
 
-BLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+
+
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+
+
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAHBLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+
+## References:
+Census (UK Data Service) (2018) English Middle Layer Super Output Areas, 2011.[Data]. Available at: https://borders.ukdataservice.ac.uk//easy_download_data.html?data=England_msoa_2011 [Accessed 5th November 2018].
+
+ONS (Office of National Statistics) (2018) Highest level of qualification by sex by age. [Data]. Available at: http://www.nomisweb.co.uk/census/2011/dc5102ew [Accessed 5th November 2018].
+
+
 
 ## Appendix A: Code for Figure 2
 ```{r, warning=FALSE, message=FALSE}
@@ -143,10 +167,12 @@ map <- tm_shape(SEmap) +
               palette="Blues",
               midpoint=NA,
               title="Population (%)",
-              legend.is.portrait = TRUE) +
+              legend.is.portrait = TRUE,
+              popup.vars=c("msoa11nm","perc_no_qual")) +
   tm_scale_bar() + 
-  tm_facets(by = "CTY17NM", nrow = 4, ncol = 2, drop.NA.facets = TRUE) +
-  tm_view(set.view = 7, basemaps = c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
+  tm_facets(by = "CTY17NM", nrow = 3, scale.factor=1) +
+  tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap"))
+
 ```
 
 ## Appendix B: Code used to merge shapefile together based on Middle Super Output Areas (MSOA)
