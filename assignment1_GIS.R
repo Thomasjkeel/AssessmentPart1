@@ -65,3 +65,128 @@ tm_shape(SEMap4326) +
             legend.outside = T) + 
   tm_facets(by = "CTY17NM", nrow = 2)
 
+library(tidyverse)
+library(maptools)
+library(RColorBrewer)
+library(classInt)
+library(tmap)
+library(rgdal)
+library(rgeos)
+library(sp)
+library(sf)
+library(raster)
+library(tmaptools)
+library(methods)
+library(rprojroot)
+library(magrittr)
+library(leaflet)
+library(classInt)
+library(modEvA) 
+library(shinyjs)
+
+# Data Preparation:
+# data downloaded at:  http://www.nomisweb.co.uk/census/2011/dc5102ew [accessed 6th Novemeber 2018]
+df <- read_csv("data/no_qual_over16.csv")
+
+#read shape for south East containing only msoa within counties 
+SEshp <- read_shape("shapes/SouthEast.shp", as.sf = TRUE)
+# change projection to WGS84 so that tmap "view" mode works
+SEshp <- set_projection(SEshp, projection = 4326)
+
+# make new column of percentage of total
+df$perc_no_qual <- (df$no_qual / df$total)*100
+
+# merge
+SEmap <- merge(SEshp, df, by.x='msoa11cd', by.y='code')
+
+# remove counties which cross over into the 
+toremove <- c("Dorset", "Hertfordshire",
+              "Northamptonshire", "Gloucestershire",
+              "Outer London", "Warwickshire")
+
+# removes values which are not (!) in toremove list
+SEmap <- SEmap[!(SEmap$CTY17NM %in% toremove),]
+
+## Mapping
+# Map prerequisits
+tmap_mode("view")
+tmap_options(limits = c(facets.view = 13))
+
+# Map output
+map <- tm_shape(SEmap) +
+  tm_polygons("perc_no_qual",
+              style="pretty",
+              n=5,
+              palette="Blues",
+              midpoint=NA,
+              title="Population (%)",
+              legend.is.portrait = TRUE,
+              popup.vars=c("msoa11nm","perc_no_qual")) +
+  tm_scale_bar() + 
+  tm_facets(by = "CTY17NM", nrow = 3, scale.factor=1) +
+  tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
+map
+
+
+
+library(tidyverse)
+library(maptools)
+library(RColorBrewer)
+library(classInt)
+library(tmap)
+library(rgdal)
+library(rgeos)
+library(sp)
+library(sf)
+library(raster)
+library(tmaptools)
+library(methods)
+library(rprojroot)
+library(magrittr)
+library(leaflet)
+library(classInt)
+library(modEvA) 
+library(shinyjs)
+
+# Data Preparation:
+# data downloaded at:  http://www.nomisweb.co.uk/census/2011/dc5102ew [accessed 6th Novemeber 2018]
+df <- read_csv("data/no_qual_over16.csv")
+
+#read shape for south East containing only msoa within counties 
+SEshp <- read_shape("shapes/SouthEast.shp", as.sf = TRUE)
+# change projection to WGS84 so that tmap "view" mode works
+SEshp <- set_projection(SEshp, projection = 4326)
+
+# make new column of percentage of total
+df$perc_no_qual <- (df$no_qual / df$total)*100
+
+# merge
+SEmap <- merge(SEshp, df, by.x='msoa11cd', by.y='code')
+
+# remove counties which cross over into the 
+toremove <- c("Dorset", "Hertfordshire",
+              "Northamptonshire", "Gloucestershire",
+              "Outer London", "Warwickshire")
+
+# removes values which are not (!) in toremove list
+SEmap <- SEmap[!(SEmap$CTY17NM %in% toremove),]
+
+## Mapping
+# Map prerequisits
+tmap_mode("view")
+tmap_options(limits = c(facets.view = 13))
+
+# Map output
+map <- tm_shape(SEmap) +
+  tm_polygons("perc_no_qual",
+              style="pretty",
+              n=5,
+              palette="Blues",
+              midpoint=NA,
+              title="Population (%)",
+              legend.is.portrait = TRUE,
+              popup.vars=c("msoa11nm","perc_no_qual")) +
+  tm_scale_bar() + 
+  tm_facets(by = "CTY17NM", nrow = 3, scale.factor=1) +
+  tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
+map

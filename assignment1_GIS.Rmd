@@ -23,15 +23,35 @@ knitr::opts_chunk$set(echo = TRUE)
 ##### Appendix A
 ##### Appendix B
 
-## 1. Introduction:
-As shown in Figure 1 below, 
+### 1. Introduction:
+This report serves as a comparison of two major tools for GIS applications: command-line and graphical user interfaces (GUI). By examining, the spatial pattern of people with no qualifications across South East England, this report critically reviews the two tools, their workflow and output (In the form of Maps).
+
+### 2. Data and Methodology:
+Note: In this report, QGIS is used as the representative GUI tool and the combination of RStudio and Python are used for command-line. 
+\newline
+
+###### 2.1 Data
+Data from the 2011 census detailing: 
+1. the number of people with ‘no qualifications’ and 
+2. total number of people 
+over the age of 16 by middle super output layer (MSOA) was obtained from Office of National Statistics’ NOMIS portal (ONS, 2011). This data was then loaded into both tools and a percentage of persons with no qualification was calculated for each MSOA. 
+
+###### 2.2 Shapefile
+Three shapefiles for all the MSOAs, all counties and all regions across the UK were obtained from UK Census 2011 (Census, 2011). The intersection tool within Geoprocessing tools in QGIS was then used to subset the MSOA file to contain only MSOAs within the ‘South East’ region. This was then merged with the data by MSOA code (see 2.1) in QGIS and Python (see Appendix B).  
+
+###### 2.3 Methods
+Using each of the tools, 5 groups were classified using a ‘pretty breaks’ classification of values of persons with no qualification (%) by MSOA. In QGIS, three layers, specifically:
+1. MSOAs categorised by each 5 groups; 2. UK Counties; 3. UK Regions, were overlaid and their polygon outline widths and transparency were changed. Using the composer manager, a scale bar, legend and north arrow were added to the example GUI map and configured. 
+
+In R, the ‘tmap’ and ‘leaflet’ libraries were used to create an interactive facet plot of the 5 groups organised by each UK county. This interactive map object was then mapped against ESRI’s WorldTopoMap basemap and a legend was added. 
+
+### 3. Results:
+Figure 1 (below) shows the map produced by a GUI GIS tool. 
 ![Figure1](qgis_map_final.png)
-**Figure 1** GUI example map produced in QGIS. Map is given in British National Grid Projection and uses data from ONS (2018).
+**Figure 1** GUI example map produced in QGIS. Map is given in British National Grid Projection and uses data from ONS (2011).
 
+Figure 2 (below) shows the map produced by a command-line GIS tool. As shown, each region within the facet-plot is scalable and selecting any of MSOA polygon item reveals greater information about it. Note that: Information within each polygon is incorrect, owing to an indexing area within the code (see Appendix A).
 
-## 2. Data and Methodology:
-
-## 3. Results:
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 library(tidyverse)
 library(maptools)
@@ -95,19 +115,20 @@ map <- tm_shape(SEmap) +
   tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
 map
 ```
-**Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2018).
+**Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2011).
 
-## 4. Discussion:
-## 5. Conclusion:
+### 4. Discussion:
 
-## References:
+### 5. Conclusion:
+
+### References:
 Census (UK Data Service) (2018) English Middle Layer Super Output Areas, 2011.[Data]. Available at: https://borders.ukdataservice.ac.uk//easy_download_data.html?data=England_msoa_2011 [Accessed 5th November 2018].
 
 ONS (Office of National Statistics) (2018) Highest level of qualification by sex by age. [Data]. Available at: http://www.nomisweb.co.uk/census/2011/dc5102ew [Accessed 5th November 2018].
 
 
 
-## Appendix A: Code for Figure 2
+### Appendix A: Code for Figure 2
 ```{r, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(maptools)
@@ -172,7 +193,7 @@ map <- tm_shape(SEmap) +
 
 ```
 
-## Appendix B: Code used to merge shapefile together based on Middle Super Output Areas (MSOA)
+### Appendix B: Code used to merge shapefile together based on Middle Super Output Areas (MSOAs)
 ```{Python}
 import geopandas as gpd
 import pandas as pd
