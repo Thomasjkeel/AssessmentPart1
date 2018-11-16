@@ -1,10 +1,11 @@
 ---
 title: "assignment1_GIS"
-author: "student number: 18110348"
+author: 'student number: 18110348'
 date: "07/11/2018"
 output:
-  html_document: default
   pdf_document: default
+  word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -115,6 +116,7 @@ map <- tm_shape(SEmap) +
   tm_facets(by = "CTY17NM", nrow = 3, scale.factor=1) +
   tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
 map
+# save_tmap(map, "commandline_map.png", width=1920, height=1080, asp=0)
 ```
 **Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2011).
 
