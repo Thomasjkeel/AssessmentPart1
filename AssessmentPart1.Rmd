@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # GIS Assignment 1
+## Word Count: 600
 
 ###Contents:
 ##### 1. Introduction 
