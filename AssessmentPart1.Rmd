@@ -118,6 +118,7 @@ map <- tm_shape(SEmap) +
 map
 # save_tmap(map, "commandline_map.png", width=1920, height=1080, asp=0)
 ```
+![Figure2](commandline_map.png)
 **Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2011).
 
 ### 4. Discussion:
