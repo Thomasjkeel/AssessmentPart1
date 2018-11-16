@@ -116,6 +116,7 @@ map <- tm_shape(SEmap) +
   tm_view(set.view = 7, basemaps =  c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
 map
 ```
+![Figure2](commandline_map.png)
 **Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2011).
 
 ### 4. Discussion:
