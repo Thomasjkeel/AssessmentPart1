@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ##### Appendix B
 
 ### 1. Introduction:
-This report serves as a comparison of two major tools for GIS applications: command-line and graphical user interfaces (GUI). By examining, the spatial pattern of people with no qualifications across South East England, this report critically reviews the two tools, their workflow and output (In the form of Maps).
+This report serves as a comparison of two major tools for GIS applications: command-line and graphical user interfaces (GUI). By examining, the spatial pattern of people with no qualifications across South East England, this report critically reviews the two tools, their workflow and output.
 
 ### 2. Data and Methodology:
 Note: In this report, QGIS is used as the representative GUI tool and the combination of RStudio and Python are used for command-line. 
@@ -118,13 +118,32 @@ map
 **Figure 2** Command line example map produced in R. Maps are given in World Geodetic System 1984 and use data from ONS (2011).
 
 ### 4. Discussion:
+The main contrast between the two tools used for this methodology was that the command -line tool (R) required a greater amount of time to ‘set-up’ before the analyses were run, compared with the GUI tool. However, the GUI took more time to run and the software more frequently crashed. 
+
+Documentation for R is more extensive than for QGIS, which allows you to borrow and adapt code/methods of GIS unlike in QGIS, where methods are static between software updates (Harris, 2017). Notably, for this report, the facet grid of interactive maps produced in R (Figure 2) were adapted from a few chunks of code found online, something which QGIS cannot so easily do.
+
+Singleton & Arribas-Bel (2017) argue that command-line tools offer greater connection between the creation of new GIS methods in academia and their practical use. Although a down side of this is that these methods are often less tried and tested (Gahegan, 2017).
+
+Finally, the reproducibility of both tools varies. In R, the same workflow can easily be used by someone else to get identical results, something which is harder to do with GUI tools (Brunsdon, 2015; 2017).
 
 ### 5. Conclusion:
+Undoubtedly, the two tools of GIS application can be used in combination with one another to achieve what is required from GIS tools.
+
 
 ### References:
+Brunsdon, C. (2015) Quantitative methods I: Reproducible research and quantitative geography, Progress in Human Geography, 1-10.
+
+Brunsdon, C. (2017) Reproducible research, quantitative geography and geocomputation. [Peer commentary on “More bark than bytes? Reflections on 21+ years of geocomputation”, by R. Harris, D. O’Sullivan, M. Gahegan, M. Charlton, L. Comber, P. Longley, C. Brundson, N. Malleson, A. Heppenstall, A. Singleton, D. Arribas-Bel & A. Evans]. Environment and Planning B: Urban Analytics and City Science, 44(4), 607–608. 
+
 Census (UK Data Service) (2018) English Middle Layer Super Output Areas, 2011.[Data]. Available at: https://borders.ukdataservice.ac.uk//easy_download_data.html?data=England_msoa_2011 [Accessed 5th November 2018].
 
+Gahegan, M. (2017) Geocomputation’s 21 year report card: B-, some good progress, but could try harder. [Peer commentary on “More bark than bytes? Reflections on 21+ years of geocomputation”, by R. Harris, D. O’Sullivan, M. Gahegan, M. Charlton, L. Comber, P. Longley, C. Brundson, N. Malleson, A. Heppenstall, A. Singleton, D. Arribas-Bel & A. Evans]. Environment and Planning B: Urban Analytics and City Science, 44(4), 601–604. 
+
+Harris, R. (2016) Quantitative Geography: The Basics. 1st Ed. London: SAGE
+
 ONS (Office of National Statistics) (2018) Highest level of qualification by sex by age. [Data]. Available at: http://www.nomisweb.co.uk/census/2011/dc5102ew [Accessed 5th November 2018].
+
+Singleton, A. & Arribas-Bel, D. (2017) Breaking-out of the ivory tower [Peer commentary on “More bark than bytes? Reflections on 21+ years of geocomputation”, by R. Harris, D. O’Sullivan, M. Gahegan, M. Charlton, L. Comber, P. Longley, C. Brundson, N. Malleson, A. Heppenstall, A. Singleton, D. Arribas-Bel & A. Evans]. Environment and Planning B: Urban Analytics and City Science, 44(4), 598–617.
 
 
 
